@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\awilu\\source\\repos\\SIBKM4_ClientServer\\API\\API.csproj": {}
+    "C:\\Users\\awilu\\OneDrive\\Documents\\SIBKM_Metro_API-main\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\awilu\\source\\repos\\SIBKM4_ClientServer\\API\\API.csproj": {
+    "C:\\Users\\awilu\\OneDrive\\Documents\\SIBKM_Metro_API-main\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\awilu\\source\\repos\\SIBKM4_ClientServer\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\awilu\\OneDrive\\Documents\\SIBKM_Metro_API-main\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\awilu\\source\\repos\\SIBKM4_ClientServer\\API\\API.csproj",
+        "projectPath": "C:\\Users\\awilu\\OneDrive\\Documents\\SIBKM_Metro_API-main\\API\\API.csproj",
         "packagesPath": "C:\\Users\\awilu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\awilu\\source\\repos\\SIBKM4_ClientServer\\API\\obj\\",
+        "outputPath": "C:\\Users\\awilu\\OneDrive\\Documents\\SIBKM_Metro_API-main\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\awilu\\AppData\\Roaming\\NuGet\\NuGet.Config",
