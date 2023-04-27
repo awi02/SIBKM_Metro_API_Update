@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace API.Models;
 [Table("tb_tr_Universities")]
@@ -10,5 +11,6 @@ public class University
     [Column("name", TypeName = "varchar(100)")]
     public string Name { get; set; }
     // Cardinality
-    public ICollection<Education> Educations { get; set; }
+    [JsonIgnore]
+    public ICollection<Education>? Educations { get; set; }
 }

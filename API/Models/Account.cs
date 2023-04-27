@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace API.Models;
 [Table("tb_tr_accounts")]
@@ -11,7 +12,9 @@ public class Account
     [Column("password", TypeName = "varchar(255)")]
     public string Password { get; set; }
     // Cardinality
-    public Employee Employee { get; set; }
-    public ICollection<AccountRole> AccountRole { get; set; }
+    [JsonIgnore]
+    public Employee? Employee { get; set; }
+    [JsonIgnore]
+    public ICollection<AccountRole>? AccountRole { get; set; }
 
 }

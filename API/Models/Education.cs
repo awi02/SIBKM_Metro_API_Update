@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace API.Models;
 [Table("tb_tr_educations")]
@@ -17,6 +18,8 @@ public class Education
     [Column("university_id")]
     public int? University_id { get; set; }
     // Cardinality
-    public University University { get; set; }
-    public Profiling Profiling { get; set; }
+    [JsonIgnore]
+    public University? University { get; set; }
+    [JsonIgnore]
+    public Profiling? Profiling { get; set; }
 }
