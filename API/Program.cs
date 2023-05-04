@@ -1,4 +1,5 @@
 using API.Context;
+using API.Repositories;
 using API.Repositories.Data;
 using API.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<MyContext>(options => options.UseSqlServer(connectionString));
 
 // Add Dependency Injection for Repository
+//builder.Services.AddScoped(typeof(IGeneralRepos<,>),typeof(GeneralRepos<,,>));
 builder.Services.AddScoped<IUniversityRepository, UniversityRepository>();
 builder.Services.AddScoped<IEducationRepository, EducationRepository>();
 builder.Services.AddScoped<IProfilingRepository, ProfilingRepository>();
