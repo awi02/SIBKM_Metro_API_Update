@@ -55,15 +55,15 @@ public class MyContext : DbContext
         modelBuilder.Entity<Account>()
                     .HasMany(a => a.AccountRole)
                     .WithOne(ar => ar.Account)
-                    .HasForeignKey(ar => ar.Account_nik)
-                    .OnDelete(DeleteBehavior.Restrict);
+                    .IsRequired(false)
+                    .HasForeignKey(a => a.Account_nik);
 
         // One Role has many AccountRole
         modelBuilder.Entity<Role>()
                     .HasMany(r => r.AccountRole)
                     .WithOne(ar => ar.Role)
-                    .HasForeignKey(ar => ar.Role_id)
-                    .OnDelete(DeleteBehavior.Restrict);
+                    .IsRequired(false)
+                    .HasForeignKey(a => a.Id);
 
     }
 }
