@@ -1,4 +1,5 @@
 ﻿using API.Context;
+using API.Handler;
 using API.Models;
 using API.Repositories.Interface;
 using API.ViewModels;
@@ -17,8 +18,15 @@ namespace API.Repositories.Data
             {
                 Name = registvm.UniversityName
             };
-            _context.Universities.Add(univeristy);
-            result=_context.SaveChanges();
+            if (_context.Universities.Any(u => u.Name.Contains(registvm.UniversityName)))
+            {
+                univeristy.Id = _context.Universities.FirstOrDefault(u => u.Name.Contains(registvm.UniversityName))!.Id;
+            }
+            else
+            {
+                _context.Set<University>().Add(univeristy);
+                result = _context.SaveChanges();
+            }
 
             var education = new Education
             {
@@ -27,8 +35,8 @@ namespace API.Repositories.Data
                 Gpa = registvm.GPA,
                 University_id = univeristy.Id
             };
-            _context.Educations.Add(education);
-            result=_context.SaveChanges();
+            _context.Set<Education>().Add(education);
+            result += _context.SaveChanges();
 
             var employee = new Employee
             {
@@ -41,60 +49,53 @@ namespace API.Repositories.Data
                 Email = registvm.Email,
                 PhoneNumber = registvm.PhoneNumber
             };
-            _context.Employees.Add(employee);
-            result=_context.SaveChanges();
+            _context.Set<Employee>().Add(employee);
+            result += _context.SaveChanges();
 
             var account = new Account
             {
                 EmployeeNIK = registvm.NIK,
-                Password = registvm.Password
+                Password = Hashing.HashPassword(registvm.Password)
             };
-            _context.Accounts.Add(account);
-            result=_context.SaveChanges();
+            _context.Set<Account>().Add(account);
+            result += _context.SaveChanges();
 
             var profiling = new Profiling
             {
                 EmployeeNIK = registvm.NIK,
                 EducationId = education.Id
             };
-            _context.Profilings.Add(profiling);
-            result = _context.SaveChanges();
+            _context.Set<Profiling>().Add(profiling);
+            result += _context.SaveChanges();
 
             var accorole = new AccountRole
             {
                 Account_nik = registvm.NIK,
-                Role_id = 1
+                Role_id =1
             };
-            _context.Account_Roles.Add(accorole);
-            result = _context.SaveChanges();
+            _context.Set<AccountRole>().Add(accorole);
+            result += _context.SaveChanges();
 
             return result;
         }
         public bool Login(loginVM loginVM)
         {
+            var getEmployeeAccount = _context.Employees.Join(_context.Accounts,
+                                                             e => e.NIK,
+                                                             a => a.EmployeeNIK,
+                                                             (e, a) => new {
+                                                                 Email = e.Email,
+                                                                 Password = a.Password
+                                                             }).FirstOrDefault(e =>
+                                                                                   e.Email == loginVM.Email);
 
-            //ambil data dari database berdasar email
-            var employee = _context.Employees.FirstOrDefault(e=>e.Email==loginVM.Email);
-            if (employee == null)
-            {
-                return false;
-            }
-            //gabng data dari database berdasar NIK
-            var account = _context.Accounts.FirstOrDefault(e => e.EmployeeNIK == employee.NIK);
-            if (account == null)
-            {
-                return false;
-            }
-
-            //cocokan dengan password
-            if(account.Password != loginVM.Password)
+            if (getEmployeeAccount == null)
             {
                 return false;
             }
 
-            //cek
-
-            return true;
+            return Hashing.ValidatePassword(loginVM.Password, getEmployeeAccount.Password);
         }
     }
+
 }
