@@ -1,9 +1,0 @@
-﻿using API.Models;
-
-namespace API.Repositories.Interface
-{
-    public interface IAccountRoleRepository:IGeneralRepos<AccountRole,int>
-    {
-        IEnumerable<string> GetRolesByEmail(string email);
-    }
-}
