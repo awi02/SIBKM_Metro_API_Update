@@ -1,6 +1,7 @@
 ﻿using API.Models;
 using API.Repositories;
 using API.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -9,6 +10,7 @@ namespace API.Controllers.Base
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class GeneralController<TRepos, TEntity, TKey> : ControllerBase
     where TRepos : IGeneralRepos<TEntity, TKey>
     {

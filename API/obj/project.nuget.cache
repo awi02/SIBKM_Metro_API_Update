@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oVMaEobCiBVQC8hMNHyVdoIhvsTNHYwIiYAfMlYxOsvDAOwOfgvT4rcMzYqWjcGgIKQ06sGXEGMbDjpZ2rNPtA==",
+  "dgSpecHash": "PINVmMO/NPU86t2xz7pyV1Ng9XjzUy236kRvK3xw7UK8dQzCxQeCMdIDOo14XaT/NrkHIM3hqOKXaAuTQyH86w==",
   "success": true,
   "projectFilePath": "C:\\Users\\awilu\\OneDrive\\Documents\\SIBKM_Metro_API-main\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\awilu\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\awilu\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\awilu\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\awilu\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.16\\microsoft.aspnetcore.authentication.jwtbearer.6.0.16.nupkg.sha512",
     "C:\\Users\\awilu\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\awilu\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\awilu\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

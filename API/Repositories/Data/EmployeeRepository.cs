@@ -9,5 +9,10 @@ namespace API.Repositories.Data
         public EmployeeRepository(MyContext context) : base(context)
         {
         }
+        public string GetFullNameByEmail(string email)
+        {
+            var employee = _context.Employees.FirstOrDefault(e => e.Email == email)!;
+            return employee.FirstName+" "+employee.LastName;
+        }
     }
 }
