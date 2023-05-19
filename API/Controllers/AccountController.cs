@@ -49,7 +49,7 @@ namespace API.Controllers
             {
                 Code = StatusCodes.Status500InternalServerError,
                 Status = HttpStatusCode.InternalServerError.ToString(),
-                Errors = "Register Failed"
+                Errors = "Register Failed/Lost Connection"
             });
         }
         [AllowAnonymous]
@@ -59,11 +59,11 @@ namespace API.Controllers
             var login = _repos.Login(loginVM);
             if (!login)
             {
-                return BadRequest(new ResponseErrorsVM<string>
+                return NotFound(new ResponseErrorsVM<string>
                 {
-                    Code = StatusCodes.Status500InternalServerError,
-                    Status = HttpStatusCode.InternalServerError.ToString(),
-                    Errors = "Login Failed"
+                    Code = StatusCodes.Status404NotFound,
+                    Status = HttpStatusCode.NotFound.ToString(),
+                    Errors = "Login Failed,Account or  Password not found!"
                 });
 
             }
