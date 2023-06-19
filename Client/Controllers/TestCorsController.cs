@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Client.Controllers
+namespace Client.Controllers;
+public class TestCorsController : Controller
 {
-    public class TestCorsController : Controller
+    public IActionResult Index()
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        return View();
     }
 }
