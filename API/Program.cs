@@ -28,6 +28,23 @@ builder.Services.AddScoped<IAccountRoleRepository, AccountRoleRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddTransient<ITokenService, TokenService>();
 
+//Configure CORS
+builder.Services.AddCors(options => {
+    options.AddDefaultPolicy(policy => {
+        policy.AllowAnyOrigin();
+        //policy.WithOrigins("https://www.websiteclient.com/");
+        policy.AllowAnyMethod();
+        //policy.WithMethods("GET", "POST", "PUT");
+        policy.AllowAnyHeader();
+        //policy.AllowAnyHeader();
+    });
+    /*options.AddPolicy("AnotherPolicy", policy => {
+        policy.WithOrigins("https://www.websiteclient.com/");
+        policy.WithMethods("GET", "POST", "PUT");
+        policy.AllowAnyHeader();
+    });*/
+});
+
 //Configure JWT Auth
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
        .AddJwtBearer(options =>
