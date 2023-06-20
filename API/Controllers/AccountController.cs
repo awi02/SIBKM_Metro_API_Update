@@ -14,7 +14,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles ="admin")]
+    //[Authorize(Roles ="admin")]
     public class AccountController : GeneralController<IAccountRepository, Account, string>
     {
         private readonly ITokenService _tokenService;
