@@ -1,7 +1,5 @@
 ﻿using API.Models;
-using API.Repositories.Interface;
 using API.ViewModels;
-
 using Newtonsoft.Json;
 using System.Text;
 
@@ -9,8 +7,6 @@ namespace Client.Repositories
 {
     public class AccountRepository
     {
-
-        private readonly IAccountRepository _accountRepository;
         private readonly string request;
         private readonly HttpClient httpClient;
 
@@ -69,7 +65,5 @@ namespace Client.Repositories
             }
             return entity;
         }
-
-
     }
 }

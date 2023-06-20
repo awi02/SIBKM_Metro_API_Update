@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Client.Controllers;
-
+[Authorize]
 public class UniversityController : Controller
 {
     private readonly UniversityRepository repository;
